@@ -8,8 +8,7 @@
  * @param {Number} seconds - number of seconds between each search, default = 30, numbers less than 10 default to 30
  */
 function checkCourse(course, seconds){
-  
-	var req = new XMLHttpRequest()
+  var req = new XMLHttpRequest()
     , url = "https://one.uf.edu/api/myschedule/course-search/?category=RES&course-code=" + course + "&prog-level=UGRD&term=20171";
     
   if (seconds === undefined || typeof(seconds) != "number" || seconds < 10) seconds = 30;
