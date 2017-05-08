@@ -5,7 +5,8 @@
  *
  * Recursively searches UF's open courses every 30 seconds and alerts if there is an opening
  * @param {String} course - course id e.g. "enc1101" or "cot3100"
- * @param {Number} seconds - number of seconds between each search, default = 30, numbers less than 10 default to 30
+ * @param {String} (OPTIONAL) section - course section number
+ * @param {Number} (OPTIONAL) seconds - number of seconds between each search, default = 30, numbers less than 10 default to 30
  */
 function checkCourse(course, section, seconds){
   var req = new XMLHttpRequest()
