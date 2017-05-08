@@ -8,12 +8,13 @@
  * @param {String} (OPTIONAL) section - course section number
  * @param {Number} (OPTIONAL) seconds - number of seconds between each search, default = 30, numbers less than 10 default to 30
  */
-function checkCourse(course, section, seconds){
+function checkCourse(course, section, seconds){	
+  if (section === undefined || typeof(section) != "string") section = "";
+	
   var req = new XMLHttpRequest()
     , url = "https://one.uf.edu/api/myschedule/course-search/?category=RES&course-code=" + course + "&prog-level=UGRD&term=20175&section=" + section;
     
   if (seconds === undefined || typeof(seconds) != "number" || seconds < 10) seconds = 30;
-  if (section === undefined || typeof(section) != "string") section = "";
 	
   req.overrideMimeType("application/json");
   req.open("GET", url);
