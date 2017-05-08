@@ -12,7 +12,7 @@ function checkCourse(course, section, seconds){
   if (section === undefined || typeof(section) != "string") section = "";
 	
   var req = new XMLHttpRequest()
-    , url = "https://one.uf.edu/api/myschedule/course-search/?category=RES&course-code=" + course + "&prog-level=UGRD&term=20175;
+    , url = "https://one.uf.edu/api/myschedule/course-search/?category=RES&course-code=" + course + "&prog-level=UGRD&term=20175";
   
   if (section != "")  url += "&section=" + section;
     
