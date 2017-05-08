@@ -10,7 +10,7 @@
  */
 function checkCourse(course, section, seconds){
   var req = new XMLHttpRequest()
-    , url = "https://one.uf.edu/api/myschedule/course-search/?category=RES&course-code=" + course + "&prog-level=UGRD&term=20171&section=" + section;
+    , url = "https://one.uf.edu/api/myschedule/course-search/?category=RES&course-code=" + course + "&prog-level=UGRD&term=20175&section=" + section;
     
   if (seconds === undefined || typeof(seconds) != "number" || seconds < 10) seconds = 30;
 	req.overrideMimeType("application/json");
