@@ -22,7 +22,7 @@ function checkCourse(course, section, seconds){
 				if (json["TOTALROWS"] > 0){
 					alert(course + " has openings");
 				} else { 
-					setTimeout(function(){checkCourse(course)}, seconds * 1000);
+					setTimeout(function(){checkCourse(course, section, seconds)}, seconds * 1000);
 				}
 			}
 		}
