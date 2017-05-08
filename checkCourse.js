@@ -13,20 +13,22 @@ function checkCourse(course, section, seconds){
     , url = "https://one.uf.edu/api/myschedule/course-search/?category=RES&course-code=" + course + "&prog-level=UGRD&term=20175&section=" + section;
     
   if (seconds === undefined || typeof(seconds) != "number" || seconds < 10) seconds = 30;
-	req.overrideMimeType("application/json");
-	req.open("GET", url);
-	req.onload = function(){
-		var data = JSON.parse(req.responseText);
-		if (data.length > 0){
-			var json = JSON.parse(req.responseText)[0];
-			if (json.hasOwnProperty("TOTALROWS")){
-				if (json["TOTALROWS"] > 0){
-					alert(course + " has openings");
-				} else { 
-					setTimeout(function(){checkCourse(course, section, seconds)}, seconds * 1000);
-				}
+  if (section === undefined || typeof(section) != "string") section = "";
+	
+  req.overrideMimeType("application/json");
+  req.open("GET", url);
+  req.onload = function(){
+  	var data = JSON.parse(req.responseText);
+  	if (data.length > 0){
+		var json = JSON.parse(req.responseText)[0];
+		if (json.hasOwnProperty("TOTALROWS")){
+			if (json["TOTALROWS"] > 0){
+				alert(course + " has openings");
+			} else { 
+				setTimeout(function(){checkCourse(course, section, seconds)}, seconds * 1000);
 			}
 		}
-	}
-	req.send();
+  	}
+  }
+  req.send();
 }
